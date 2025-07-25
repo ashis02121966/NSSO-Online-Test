@@ -16,15 +16,10 @@ import {
   CertificateService
 } from './database';
 import { supabase, isDemoMode } from '../lib/supabase';
+import { generateUUID } from '../utils';
 
-// Helper function to generate UUID v4
-function generateUUID(): string {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    const r = Math.random() * 16 | 0;
-    const v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
+// Export generateUUID for use in other services
+export { generateUUID };
 
 // Production API implementation using Supabase
 console.log('API Services: Initializing with Supabase backend');
